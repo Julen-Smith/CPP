@@ -6,16 +6,18 @@
 /*   By: jsmith <jsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:30:28 by jsmith            #+#    #+#             */
-/*   Updated: 2022/06/03 17:49:34 by jsmith           ###   ########.fr       */
+/*   Updated: 2022/06/03 18:47:06 by jsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phone_book.hpp"
-#include <strings.h>
+
 	contact::contact()
 	{
 		std::cout << "He sido creado sin parametros" << std::endl;
 	}
+
+	contact::~contact(){}
 
 	contact::contact (std::string first_name,std::string last_name,std::string nickname,int phone_number ,std::string darkest_secret)	
 	{

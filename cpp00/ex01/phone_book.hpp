@@ -1,6 +1,7 @@
 #ifndef PHONE_BOOK_HPP
 #define PHONE_BOOK_HPP
 #include <iostream>
+#include <strings.h>
 
 class contact
 {
@@ -30,14 +31,12 @@ class contact
 class phone_book
 {
 	public:
-		void add(contact contact);
+		phone_book();
+		~phone_book();
+		void add(contact contact, int index);
 		void search(void);
-		void get_contacts(void);
-		void set_contacts(int index);
 	private:
 		contact contacts[8];
-
-
 };
 
 #endif 

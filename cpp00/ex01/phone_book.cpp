@@ -32,9 +32,13 @@
 					oldest_contact = this->contacts[i].get_contact_index();
 				i++;
 			}
+			contact.set_contact_index(i);
+			contact.set_contact_position(index);
 			this->contacts[i] = contact;
 		} else
 		{
+			contact.set_contact_index(index);
+			contact.set_contact_position(index + 1);
 			this->contacts[index] = contact;
 		}
 		

@@ -27,8 +27,17 @@ class contact
 	 	std::string darkest_secret;
 };
 
+class phone_book
+{
+	public:
+		void add(contact contact);
+		void search(void);
+		void get_contacts(void);
+		void set_contacts(int index);
+	private:
+		contact contacts[8];
 
 
-
+};
 
 #endif 

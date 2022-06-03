@@ -16,11 +16,20 @@ int main(int argc, char *argv[])
 {	
 	contact ct;
 	phone_book pb;
+	int contact_index;
+	int contact_position;
 
-	ct.set_first_name("Julen");
-	pb.add(ct,0);
+	contact_index = 1;
+	contact_position = 0;
+	ct.set_darkest_secret("I love coding");
+	ct.set_first_name("Beñat");
+	ct.set_last_name("Garrido");
+	ct.set_nickname("bgarrido");
+	ct.set_phone_number(63358149);
+	ct.set_contact_index(contact_index);
+	ct.set_contact_position(contact_position);
+	pb.add(ct, 0);
 	pb.search();
-
 	
 
 	

@@ -12,22 +12,19 @@
 
 #include "phone_book.hpp"
 
-	contact::contact()
-	{
-		std::cout << "He sido creado sin parametros" << std::endl;
-	}
+	contact::contact(){}
 
 	contact::~contact(){}
 
-	contact::contact (std::string first_name,std::string last_name,std::string nickname,int phone_number ,std::string darkest_secret)	
+	contact::contact (std::string first_name,std::string last_name,std::string nickname,int phone_number ,std::string darkest_secret, int contact_index, int contact_position)
 	{
 		this->first_name = first_name;
 		this->last_name = last_name;
 		this->nickname = nickname;
 		this->phone_number = phone_number;
 		this->darkest_secret = darkest_secret;
-
-		std::cout << this->first_name << this->last_name << this->nickname  << this->phone_number << this->darkest_secret << std::endl;
+		this->contact_position = contact_position;
+		this->contact_index = contact_index;
 	}
 
 	std::string contact::get_first_name(void)
@@ -50,12 +47,12 @@
 		this->last_name = last_name;
 	}
 
-	void contact::get_nickname(std::string nickname)
+	void contact::set_nickname(std::string nickname)
 	{
 		this->nickname = nickname;
 	}
 
-	std::string contact::set_nickname(void)
+	std::string contact::get_nickname(void)
 	{
 		return (this->nickname);
 	}
@@ -78,4 +75,20 @@
 	std::string contact::get_darkest_secret(void)
 	{
 		return (this->darkest_secret);
+	}
+
+	int contact::get_contact_index(void)
+	{
+		return (this->contact_index);
+	}
+
+	int contact::get_contact_position() {
+		return (this->contact_position);
+	}
+
+	void contact::set_contact_position(int position){
+		this->contact_position = position;
+	};
+	void contact::set_contact_index(int index) {
+		this->contact_index = index;
 	}

@@ -12,10 +12,7 @@
 
 #include "phone_book.hpp"
 
-	phone_book::phone_book()
-	{
-			std::cout << "Phonebook creado" << std::endl;
-	}
+	phone_book::phone_book(){}
 	
 	phone_book::~phone_book(){}
 
@@ -23,7 +20,6 @@
 	{
 		int oldest_contact = 0;
 		
-		this->contacts[index] = contact;
 		if (index > 8)
 		{
 			int i;
@@ -37,13 +33,22 @@
 				i++;
 			}
 			this->contacts[i] = contact;
+		} else
+		{
+			this->contacts[index] = contact;
 		}
 		
 	}
 
 	void phone_book::search(void)
 	{
-		std::cout << this->contacts[0].get_first_name() << std::endl;
+		std::cout << this->contacts[0].get_contact_position() << "	|	";
+		std::cout << this->contacts[0].get_first_name() << "	|	";
+		std::cout << this->contacts[0].get_last_name()<< "	|	";
+		std::cout << this->contacts[0].get_nickname() << "	|	";
+		std::cout << this->contacts[0].get_phone_number() << "	|	";
+		std::cout << this->contacts[0].get_darkest_secret() << std::endl;
+
 	} 
 	
 /*

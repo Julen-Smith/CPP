@@ -13,6 +13,23 @@
 #include "phone_book.hpp"
 #include <string>
 
+enum string_opt {
+	ADD,
+	SEARCH,
+	EXIT,
+	FAIL
+};
+
+string_opt check(std::string opt){
+	if (opt  == "ADD")
+		return (ADD);
+	if (opt == "SEARCH")
+		return (SEARCH);
+	if (opt == "EXIT")
+		return (EXIT);
+	return (FAIL);
+}
+
 int main(int argc, char *argv[])
 {	
 	contact ct;
@@ -31,21 +48,19 @@ int main(int argc, char *argv[])
 		std::cout << "EXIT\n";
 		std::cin>>opt;
 		std::cout << opt << std::endl;
-		switch () {
-			case "ADD":
+		switch (check(opt)) {
+			case ADD:
 				std::cout << "Add choosed\n" << std::endl;
 				break;
-			case "SEARCH":
+			case SEARCH:
 				std::cout << "Search choosed\n";
 				break;
-			case "EXIT":
+			case EXIT:
 				std::cout << "EXIT\n";
 				exit(1);
-				break;
 			default:
 				std::cout << "Wrong mf\n";
 				exit(1);
-				break;
 		}
 	}/*
 	ct.set_darkest_secret("I love coding");

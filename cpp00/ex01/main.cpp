@@ -31,32 +31,56 @@ string_opt check(std::string opt){
 }
 
 int main(int argc, char *argv[])
-{	
-	contact ct;
+{
 	phone_book pb;
 	int contact_index;
 	int contact_position;
 	std::string opt;
+	contact ct;
+	std::string firstName;
+	std::string lastName;
+	std::string nickname;
+	int phoneNumber;
+	std::string darkestSecret;
 
 	contact_index = 1;
 	contact_position = 0;
 	while (1)
 	{
-		std::cout << "Choose your action:\n";
-		std::cout << "ADD\n";
-		std::cout << "SEARCH\n";
-		std::cout << "EXIT\n";
+		std::cout << "Choose your action:" << std::endl;
+		std::cout << "	ADD" << std::endl;
+		std::cout << "	SEARCH" << std::endl;
+		std::cout << "	EXIT" << std::endl;
 		std::cin>>opt;
 		std::cout << opt << std::endl;
 		switch (check(opt)) {
 			case ADD:
-				std::cout << "Add choosed\n" << std::endl;
+				std::cout << "Insert name: " << std::endl;
+				std::cin >> firstName;
+				ct.set_first_name(firstName);
+				std::cout << "Insert last name: " << std::endl;
+				std::cin >> lastName;
+				ct.set_last_name(lastName);
+				std::cout << "Insert nickname: " << std::endl;
+				std::cin >> nickname;
+				ct.set_nickname(nickname);
+				std::cout << "Insert phone number: " << std::endl;
+				std::cin >> phoneNumber;
+				ct.set_phone_number(phoneNumber);
+				std::cout << "Insert darkest secret: " << std::endl;
+				std::cin >> darkestSecret;
+				ct.set_darkest_secret(darkestSecret);
+				ct.set_contact_index(contact_index);
+				ct.set_contact_position(contact_position);
+				pb.add(ct, contact_position
+				);
+				contact_position++;
+				contact_index++;
 				break;
 			case SEARCH:
-				std::cout << "Search choosed\n";
+				pb.search();
 				break;
 			case EXIT:
-				std::cout << "EXIT\n";
 				exit(1);
 			default:
 				std::cout << "Wrong mf\n";

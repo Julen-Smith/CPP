@@ -46,6 +46,9 @@
 
 	void phone_book::search(void)
 	{
+		int i;
+
+		i = 0;
 		std::cout << this->contacts[0].get_contact_position() << "	|	";
 		std::cout << this->contacts[0].get_first_name() << "	|	";
 		std::cout << this->contacts[0].get_last_name()<< "	|	";

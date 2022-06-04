@@ -53,13 +53,22 @@
 		int i;
 
 		i = 0;
+		std::cout << "|	Index	|	First Name	|	Last Name	|	Nickname	|" << std::endl;
 		while (i <= this->size) {
+			std::cout << "|	";
 			std::cout << this->contacts[i].get_contact_position() << "	|	";
-			std::cout << this->contacts[i].get_first_name() << "	|	";
-			std::cout << this->contacts[i].get_last_name() << "	|	";
-			std::cout << this->contacts[i].get_nickname() << "	|	";
-			std::cout << this->contacts[i].get_phone_number() << "	|	";
-			std::cout << this->contacts[i].get_darkest_secret() << std::endl;
+			if (this->contacts[i].get_first_name().size() > 10)
+				std::cout << this->contacts[i].get_first_name().substr(0,9) << "." << "	|	";
+			else
+				std::cout << this->contacts[i].get_first_name() << "	|	";
+			if (this->contacts[i].get_last_name().size() > 10)
+				std::cout << this->contacts[i].get_last_name().substr(0,9) << "." << "	|	";
+			else
+				std::cout << this->contacts[i].get_last_name() << "	|	";
+			if (this->contacts[i].get_nickname().size() > 10)
+				std::cout << this->contacts[i].get_nickname().substr(0,9) << "." << "	|	";
+			else
+				std::cout << this->contacts[i].get_nickname() << "	|" << std::endl;
 			i++;
 		}
 	} 

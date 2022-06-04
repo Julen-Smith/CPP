@@ -39,10 +39,13 @@ class phone_book
 	public:
 		phone_book();
 		~phone_book();
-		void add(contact contact, int index);
-		void search(void);
+		void	add(contact contact, int index);
+		void	search(void);
+		int		get_size(void);
+		void	set_size(int size);
 	private:
-		contact contacts[8];
+		contact contacts[2];
+		int size = 0;
 };
 
 #endif 

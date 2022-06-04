@@ -11,31 +11,13 @@
 /* ************************************************************************** */
 
 #include "phone_book.hpp"
-#include <string>
-
-enum string_opt {
-	ADD,
-	SEARCH,
-	EXIT,
-	FAIL
-};
-
-string_opt check(std::string opt){
-	if (opt  == "ADD")
-		return (ADD);
-	if (opt == "SEARCH")
-		return (SEARCH);
-	if (opt == "EXIT")
-		return (EXIT);
-	return (FAIL);
-}
 
 int main(int argc, char *argv[])
 {
 	phone_book pb;
 	int contact_index;
 	int contact_position;
-	std::string opt;
+	int opt;
 	contact ct;
 	std::string firstName;
 	std::string lastName;
@@ -47,14 +29,14 @@ int main(int argc, char *argv[])
 	contact_position = 0;
 	while (1)
 	{
-		std::cout << "Choose your action:" << std::endl;
-		std::cout << "	ADD" << std::endl;
-		std::cout << "	SEARCH" << std::endl;
-		std::cout << "	EXIT" << std::endl;
+		std::cout << "Choose your action (select number:" << std::endl;
+		std::cout << "	1. ADD" << std::endl;
+		std::cout << "	2. SEARCH" << std::endl;
+		std::cout << "	3. EXIT" << std::endl;
 		std::cin>>opt;
 		std::cout << opt << std::endl;
-		switch (check(opt)) {
-			case ADD:
+		switch (opt) {
+			case 1:
 				std::cout << "Insert name: " << std::endl;
 				std::cin >> firstName;
 				ct.set_first_name(firstName);
@@ -72,29 +54,19 @@ int main(int argc, char *argv[])
 				ct.set_darkest_secret(darkestSecret);
 				ct.set_contact_index(contact_index);
 				ct.set_contact_position(contact_position);
-				pb.add(ct, contact_position
-				);
+				pb.add(ct, contact_position);
+				pb.set_size(contact_position);
 				contact_position++;
 				contact_index++;
 				break;
-			case SEARCH:
+			case 2:
 				pb.search();
 				break;
-			case EXIT:
+			case 3:
 				exit(1);
 			default:
 				std::cout << "Wrong mf\n";
 				exit(1);
 		}
-	}/*
-	ct.set_darkest_secret("I love coding");
-	ct.set_first_name("Beñat");
-	ct.set_last_name("Garrido");
-	ct.set_nickname("bgarrido");
-	ct.set_phone_number(63358149);
-	pb.add(ct, 0);
-	pb.search();
-	*/
-
-	return (0);
+	}
 }

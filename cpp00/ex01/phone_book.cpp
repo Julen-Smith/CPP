@@ -19,9 +19,6 @@
 	void phone_book::add(contact contact, int index)
 	{
 		int oldest_contact = 0;
-
-		
-		std::cout << contact.get_first_name() << std::endl;
 		
 		if (index > 7)
 		{
@@ -53,32 +50,25 @@
 		int i;
 
 		i = 0;
-		while(i != index)
-		{	
-			if (this->contacts[i].get_first_name() != "")
-			std::cout << this->contacts[i].get_contact_index() << "  " << this->contacts[i].get_first_name() << std::endl;
-			i++;
-		}
-		/*
 		std::cout << "|	Index	|	First Name	|	Last Name	|	Nickname	|" << std::endl;
-		while (i <= this->size) {
+		while(i != index)
+		{
 			std::cout << "|	";
-			std::cout << this->contacts[i].get_contact_position() << "	|	";
+			std::cout << this->contacts[i].get_contact_index() + 1<< "	|	";
 			if (this->contacts[i].get_first_name().size() > 10)
-				std::cout << this->contacts[i].get_first_name().substr(0,9) << "." << "	|	";
+				std::cout << this->contacts[i].get_first_name().erase(9, this->contacts[i].get_first_name().size()) << "." << "	|	";
 			else
 				std::cout << this->contacts[i].get_first_name() << "	|	";
 			if (this->contacts[i].get_last_name().size() > 10)
-				std::cout << this->contacts[i].get_last_name().substr(0,9) << "." << "	|	";
+				std::cout << this->contacts[i].get_last_name().erase(9, this->contacts[i].get_last_name().size()) << "." << "	|	";
 			else
 				std::cout << this->contacts[i].get_last_name() << "	|	";
 			if (this->contacts[i].get_nickname().size() > 10)
-				std::cout << this->contacts[i].get_nickname().substr(0,9) << "." << "	|	";
+				std::cout << this->contacts[i].get_nickname().erase(9, this->contacts[i].get_nickname().size()) << "." << "	|" << std::endl;
 			else
 				std::cout << this->contacts[i].get_nickname() << "	|" << std::endl;
 			i++;
 		}
-		*/
 	} 
 
 	void phone_book::set_size(int size) {
@@ -99,7 +89,7 @@
 		std::cout << "Insert name: " << std::endl;
 		std::cin.getline(response,MAX_NAME_LEN);
 		contacto.set_first_name(response);
-	/*	
+
 		std::cout << "Insert last name: " << std::endl;
 		std::cin.getline(response,MAX_NAME_LEN);
 		contacto.set_last_name(response);
@@ -115,6 +105,6 @@
 		std::cout << "Insert darkest secret: " << std::endl;
 		std::cin.getline(response,MAX_NAME_LEN);
 		contacto.set_darkest_secret(response);
-	*/		
+
 		return contacto;
 	}

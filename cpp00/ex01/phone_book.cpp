@@ -6,7 +6,7 @@
 /*   By: jsmith <jsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:30:36 by jsmith            #+#    #+#             */
-/*   Updated: 2022/06/03 19:01:35 by jsmith           ###   ########.fr       */
+/*   Updated: 2022/06/05 19:50:28 by jsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,17 @@
 	{
 		int oldest_contact = 0;
 
-		//std::cout << "INDEX --> " << index
-		if (index > 1)
+		
+		std::cout << contact.get_first_name() << std::endl;
+		
+		if (index > 7)
 		{
 			int i;
 			int pos = 0;
 
 			i = 1;
 			oldest_contact = this->contacts[0].get_contact_index();
-			while(i != 2)
+			while(i != 8)
 			{
 				if (this->contacts[i].get_contact_index() < oldest_contact) {
 					oldest_contact = this->contacts[i].get_contact_index();
@@ -36,8 +38,7 @@
 				}
 					i++;
 			}
-			contact.set_contact_index(i);
-			contact.set_contact_position(index);
+			contact.set_contact_index(index);
 			this->contacts[pos] = contact;
 		} else
 		{
@@ -45,14 +46,20 @@
 			contact.set_contact_position(index + 1);
 			this->contacts[index] = contact;
 		}
-		
 	}
 
-	void phone_book::search(void)
+	void phone_book::search(int index)
 	{
 		int i;
 
 		i = 0;
+		while(i != index)
+		{	
+			if (this->contacts[i].get_first_name() != "")
+			std::cout << this->contacts[i].get_contact_index() << "  " << this->contacts[i].get_first_name() << std::endl;
+			i++;
+		}
+		/*
 		std::cout << "|	Index	|	First Name	|	Last Name	|	Nickname	|" << std::endl;
 		while (i <= this->size) {
 			std::cout << "|	";
@@ -71,6 +78,7 @@
 				std::cout << this->contacts[i].get_nickname() << "	|" << std::endl;
 			i++;
 		}
+		*/
 	} 
 
 	void phone_book::set_size(int size) {
@@ -82,17 +90,31 @@
 	int phone_book::get_size() {
 		return (this->size);
 	}
-/*
-class phoneBook
-{
 
+	contact phone_book::create_contact(void)
+	{
+		contact contacto;
+		char response[MAX_NAME_LEN];
 
-
-
-
-
-
-
-
-}
-*/
+		std::cout << "Insert name: " << std::endl;
+		std::cin.getline(response,MAX_NAME_LEN);
+		contacto.set_first_name(response);
+	/*	
+		std::cout << "Insert last name: " << std::endl;
+		std::cin.getline(response,MAX_NAME_LEN);
+		contacto.set_last_name(response);
+		
+		std::cout << "Insert nickname: " << std::endl;
+		std::cin.getline(response,MAX_NAME_LEN);
+		contacto.set_nickname(response);
+		
+		std::cout << "Insert phone number: " << std::endl;	
+		std::cin.getline(response,MAX_NAME_LEN);
+		contacto.set_phone_number(response);
+		
+		std::cout << "Insert darkest secret: " << std::endl;
+		std::cin.getline(response,MAX_NAME_LEN);
+		contacto.set_darkest_secret(response);
+	*/		
+		return contacto;
+	}

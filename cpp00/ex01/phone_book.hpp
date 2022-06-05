@@ -3,11 +3,13 @@
 #include <iostream>
 #include <strings.h>
 
+#define MAX_NAME_LEN 4096 
+
 class contact
 {
 	public:
 		contact();
-		contact (std::string first_name,std::string last_name,std::string nickname,int phone_number ,std::string darkest_secret, int contact_index, int contact_position);
+		contact (std::string first_name,std::string last_name,std::string nickname,std::string phone_number ,std::string darkest_secret, int contact_index, int contact_position);
 		~contact();
 		std::string get_first_name(void);
 		void set_first_name(std::string first_name);
@@ -15,8 +17,8 @@ class contact
 		void set_last_name(std::string last_name);
 		void set_nickname(std::string nickname);
 		std::string get_nickname(void);
-		void set_phone_number(int phone_number);
-		int get_phone_number(void);
+		void set_phone_number(std::string phone_number);
+		std::string get_phone_number(void);
 		int get_contact_index(void);
 		int get_contact_position(void);
 		void set_contact_index(int index);
@@ -28,7 +30,7 @@ class contact
 		std::string first_name;
 	 	std::string last_name;
 		std::string nickname;
-	 	int phone_number;
+	 	std::string phone_number;
 		int contact_index;
 	 	std::string darkest_secret;
 		int contact_position;
@@ -37,14 +39,16 @@ class contact
 class phone_book
 {
 	public:
+		contact contacts[8];
 		phone_book();
 		~phone_book();
 		void	add(contact contact, int index);
-		void	search(void);
+		void	search(int index);
 		int		get_size(void);
 		void	set_size(int size);
+		contact	create_contact();
 	private:
-		contact contacts[2];
+	
 		int size = 0;
 };
 

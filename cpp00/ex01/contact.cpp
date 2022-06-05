@@ -6,7 +6,7 @@
 /*   By: jsmith <jsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:30:28 by jsmith            #+#    #+#             */
-/*   Updated: 2022/06/03 18:47:06 by jsmith           ###   ########.fr       */
+/*   Updated: 2022/06/05 18:57:25 by jsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 	contact::~contact(){}
 
-	contact::contact (std::string first_name,std::string last_name,std::string nickname,int phone_number ,std::string darkest_secret, int contact_index, int contact_position)
+	contact::contact (std::string first_name,std::string last_name,std::string nickname,std::string phone_number ,std::string darkest_secret, int contact_index, int contact_position)
 	{
 		this->first_name = first_name;
 		this->last_name = last_name;
@@ -57,12 +57,12 @@
 		return (this->nickname);
 	}
 
-	void contact::set_phone_number(int phone_number)
+	void contact::set_phone_number(std::string phone_number)
 	{
 		this->phone_number = phone_number;
 	}
 
-	int contact::get_phone_number(void)
+	std::string contact::get_phone_number(void)
 	{
 		return (this->phone_number);
 	}

@@ -1,8 +1,10 @@
-#include <iostream>
 #include "Account.hpp"
+#include <iostream>
 
-
-	int initial_deposit;
+	int	Account::_totalNbWithdrawals;
+	int	Account::_nbAccounts;
+	int	Account::_totalAmount;
+	int	Account::_totalNbDeposits;
 
 	//Constructor
 	Account::Account(){}
@@ -14,11 +16,11 @@
 		this->_nbDeposits = 1;
 		this->_nbWithdrawals = 0;
 		//STATIC
-		Account::_nbAccounts++;
+		_nbAccounts++;
 		this->_accountIndex = Account::getNbAccounts();
 	}
 
-		// Functions non static
+	// Functions non static
 	void Account::makeDeposit(int deposit)
 	{
 		if (deposit > 0)
@@ -27,24 +29,23 @@
 			this->_amount += deposit;
 			this->_nbDeposits++;
 			//STATIC
-			 Account::_totalAmount += deposit;
-			 Account::_totalNbDeposits++;
+			 _totalAmount += deposit;
+			 _totalNbDeposits++;
 		}
 	}
 
 	bool Account::makeWithdrawal(int withdrawal)
 	{
-	
 		if (withdrawal <= this->_amount && withdrawal > 0)
 		{
 			this->_nbWithdrawals++;
-			Account::_totalNbWithdrawals++;
+			_totalNbWithdrawals++;
 			return (true);
 		}
 		return (false);
 	}
 
-	int Account::checkAmount (void) const 
+	 int Account::checkAmount (void) const 
 	{
 		return (this->_amount);
 	}
@@ -63,22 +64,22 @@
 	//STATIC
 	int	Account::getNbAccounts( void )
 	{
-		return (Account::_nbAccounts);
+		return (_nbAccounts);
 	}
 
 	int	Account::getTotalAmount( void )
 	{
-		return (Account::_totalAmount);
+		return (_totalAmount);
 	}
 
 	int	Account::getNbDeposits( void )
 	{
-		return (Account::_totalNbDeposits);
+		return (_totalNbDeposits);
 	}
 
 	int	 Account::getNbWithdrawals( void )
 	{
-		return (Account::_totalNbWithdrawals);
+		return (_totalNbWithdrawals);
 	}
 
 	void	Account::displayAccountsInfos( void )

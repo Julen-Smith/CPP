@@ -16,7 +16,7 @@
 
 void print_menu(void)
 {
-	std::cout << "Choose your action (select number:" << std::endl;
+	std::cout << "Choose your action (Input the name):" << std::endl;
 	std::cout << "	1. ADD" << std::endl;
 	std::cout << "	2. SEARCH" << std::endl;
 	std::cout << "	3. EXIT" << std::endl;

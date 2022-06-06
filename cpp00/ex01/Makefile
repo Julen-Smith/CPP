@@ -1,11 +1,11 @@
-SRCS			= megaphone.cpp
+SRCS			= contact.cpp main.cpp phone_book.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= c++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= megaphone
+NAME			= PhoneBook
 
 all:			$(NAME)
 

@@ -10,13 +10,14 @@ NAME			= megaphone
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-
+				@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+				@echo "Compiled!"
 clean:
-				$(RM) $(OBJS)
+				@$(RM) $(OBJS)
 
 fclean:			clean
-				$(RM) $(NAME)
+				@$(RM) $(NAME)
+
 
 re:				fclean $(NAME)
 

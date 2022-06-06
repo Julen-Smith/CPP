@@ -14,11 +14,12 @@
 #include <string>
 
 int main(int argc, char *argv[]) {
-    
+
 	int i;
 	int u;
 
 	i = 1;
+	(void)argc;
 	while(argv[i])
 	{	
 		u = 0;

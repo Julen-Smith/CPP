@@ -48,8 +48,7 @@ class phone_book
 		void	set_size(int size);
 		contact	create_contact();
 	private:
-	
-		int size = 0;
+		int size;
 };
 
 #endif 

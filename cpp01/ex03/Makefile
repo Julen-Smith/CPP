@@ -1,11 +1,11 @@
-SRCS			= main.cpp
+SRCS			= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
-CXXFLAGS		= -Wall -Wextra -Werror -I.
+CXXFLAGS		= -Wall -Wextra -Werror -I. -fsanitize=address -g3
 
-NAME			= Brain
+NAME			= Violence
 
 all:			$(NAME)
 

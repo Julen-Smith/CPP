@@ -8,13 +8,13 @@
 
 	void HumanB::attack(void)
 	{
-		if (this->Weapon.getType() == "")
-			std::cout << this->name << " attacks with his COCK" << std::endl;
+		if (weapon->getType() == "")
+			std::cout << this->name << " attacks with his fists" << std::endl;
 		else
-			std::cout << this->name << " attacks with his " << this->Weapon.getType() << std::endl;
+			std::cout << this->name << " attacks with his " << weapon->getType() << std::endl;
 	}
 
-	void HumanB::setWeapon(class Weapon Weapon)
+	void HumanB::setWeapon(class Weapon &weapon)
 	{
-		this->Weapon = Weapon;
+		this->weapon = &weapon;
 	}

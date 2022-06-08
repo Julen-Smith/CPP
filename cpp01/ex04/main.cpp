@@ -30,11 +30,6 @@ int main(int argc, char *argv[])
 		file.open(Name.append(".replace"), std::fstream::out | std::fstream::trunc);
 		std::fstream fd (argv[1]);
 		std::string line;
-		/*if (file && !file.eof())
-		{
-			std::remove(Name.append(".replace"));
-			file.open(Name.append(".replace"), std::fstream::out | std::fstream::app);
-		}*/
 		if (fd.is_open())
 		{
 			while (fd.good()) {

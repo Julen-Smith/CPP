@@ -24,5 +24,6 @@ private:
 	static const int bits = 8;
 };
 
+std::ostream &operator <<(std::ostream & o, Fixed const & i);
 
 #endif //CPP_FIXED_HPP

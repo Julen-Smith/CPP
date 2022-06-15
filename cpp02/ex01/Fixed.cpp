@@ -16,12 +16,14 @@ Fixed::Fixed(Fixed const &other)
 	this->value = other.getRawBits();
 }
 
-//parametric constructor with float
-
-Fixed::Fixed(const int value) {}
-
 //parametric constructor with int
-Fixed::Fixed(int const value) {}
+
+Fixed::Fixed(const int value) : value(value << Fixed::bits) {
+	return;
+}
+
+//parametric constructor with float
+Fixed::Fixed(float const value) : value(roundf(value * (1 << Fixed::bits))){}
 
 //Destructor
 Fixed::~Fixed(){}
@@ -32,6 +34,12 @@ Fixed &Fixed::operator=(Fixed const &other)
 {
 	this->value = other.getRawBits();
 	return (*this);
+}
+//ostream operator in order to be able to print whatever we want by trying to print directly de Fixed object
+std::ostream &operator<<(std::ostream &out, Fixed const &value)
+{
+	out << value.toFloat();
+	return (out);
 }
 
 //getter
@@ -45,6 +53,19 @@ void Fixed::setRawBits(int const raw)
 	this->value = raw;
 }
 
-int Fixed::toInt() const {}
+/**
+ * This formula is used to translate from binary to integer N = N/(2^x)
+ * where N is the value of Fixed and x is the value of the bits shift
+ * */
+int Fixed::toInt() const {
+	return (this->value >> Fixed::bits);
+}
 
-float Fixed::toFloat() const {}
+/**
+ * First we must get the left shift value of 1 in the bits asigned to fixed
+ * The formula of tit is N = N * (2^x)
+ * Where N is the value we want to shift and x is the number <<of the bits to shift
+ * */
+float Fixed::toFloat() const {
+	return((float) this->value / (float ) (1 << Fixed::bits));
+}

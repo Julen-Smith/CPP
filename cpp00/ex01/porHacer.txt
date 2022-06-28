@@ -1,2 +1,0 @@
-- Bucle infinito en caso de que no se meta exit.
-- Longitudes del search

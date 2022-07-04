@@ -2,13 +2,13 @@
 // Created by bgarrido42 on 6/9/22.
 //
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	ScavTrap a = ScavTrap("Clapie");
+	FragTrap a = FragTrap("Clapie");
 
-	a.guardGate();
+	a.highFiveGuys();
 
 	/*ClapTrap clap("Clapie");
 

@@ -5,7 +5,7 @@ CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= ScavTrap
+NAME			= ClaptTrap
 
 all:			$(NAME)
 
